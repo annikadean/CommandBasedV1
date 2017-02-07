@@ -1,6 +1,10 @@
 package org.usfirst.frc.team2220.robot;
 
 import com.ctre.CANTalon;
+
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+//t edu.wpi.first.wpilibj.Solenoid;
+
 import org.usfirst.frc.team2220.robot.subsystems.*;
 
 /**
@@ -14,11 +18,18 @@ public class RobotMap {
 	public static CANTalon leftMaster;
 	public static CANTalon rightSlave;
 	public static CANTalon leftSlave;
+
+	public static DoubleSolenoid clawzSolenoid;
+	public static Clawz clawz;
 	
 	public static TankDrive drive;
 	
+	
 	public static void init()
 	{
+		clawzSolenoid = new DoubleSolenoid(0,1);
+		clawz = new Clawz();
+
 		drive = new TankDrive();
 		rightMaster = new CANTalon(1);
 		leftMaster  = new CANTalon(2);
